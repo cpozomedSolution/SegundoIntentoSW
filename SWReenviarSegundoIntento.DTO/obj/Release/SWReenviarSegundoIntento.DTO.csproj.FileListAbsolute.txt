@@ -1,0 +1,7 @@
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Release\SWReenviarSegundoIntento.DTO.dll.config
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Release\SWReenviarSegundoIntento.DTO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Release\SWReenviarSegundoIntento.DTO.pdb
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Release\SWReenviarSegundoIntento.DTO.csprojAssemblyReference.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Release\SWReenviarSegundoIntento.DTO.csproj.CoreCompileInputs.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Release\SWReenviarSegundoIntento.DTO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Release\SWReenviarSegundoIntento.DTO.pdb

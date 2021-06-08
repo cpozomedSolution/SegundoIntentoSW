@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SWReenviarSegundoIntentoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_CENTROID" Type="int" Mode="In" />
+    <Parameter Name="IN_USUARIOID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GUARDAR_STOCK_PACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_FICHA_STOCK" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_INSERTAR_NUEVA_REPOSICION_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_NID_CATALOGO" Type="int" Mode="In" />
+    <Parameter Name="IN_NID_FICHA_STOCK" Type="int" Mode="In" />
+    <Parameter Name="IN_NID_USUARIO" Type="int" Mode="In" />
+    <Parameter Name="IN_SCOMENTARIO" Type="nvarchar" Mode="In" />
+    <Parameter Name="IN_NID_CENTRO" Type="int" Mode="In" />
+    <Parameter Name="IN_NID_ORDEN_COMPRA" Type="int" Mode="In" />
+    <Parameter Name="IN_NID_CONSIGNACION" Type="int" Mode="In" />
+    <Parameter Name="IN_NID_DESPACHO" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_INSERTAR_ORDEN_COMPRA_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_LICITACION" Type="int" Mode="In" />
+    <Parameter Name="IN_CODIGO_ORDEN_COMPRA" Type="nvarchar" Mode="In" />
+    <Parameter Name="IN_ID_PROVEEDOR" Type="int" Mode="In" />
+    <Parameter Name="IN_ID_MONEDA" Type="int" Mode="In" />
+    <Parameter Name="IN_ID_PAIS" Type="int" Mode="In" />
+    <Parameter Name="IN_ID_TIPO_OC" Type="int" Mode="In" />
+    <Parameter Name="IN_DESCRIPCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="IN_NOMBRE" Type="nvarchar" Mode="In" />
+    <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_CORREO_AUTOMATICO" Type="int" Mode="In" />
+    <Parameter Name="IN_ID_PROVEEDOR" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_OBTENER_INFO_CORREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_FICHA_STOCK" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_FICHA" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_OBTENER_TODOS_LOS_CENTROS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_CATALOGO_ID" Type="int" Mode="In" />
+    <Parameter Name="IN_FICHA_STOCK_ID" Type="int" Mode="In" />
+    <Parameter Name="IN_CENTRO_ID" Type="int" Mode="In" />
+    <Parameter Name="IN_DESPACHO_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="SWReenviarSegundoIntentoModelStoreContainer" />
+</Schema>

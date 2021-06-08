@@ -1,0 +1,8 @@
+C:\Users\Cathreport\source\repos\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Debug\SWReenviarSegundoIntento.DTO.csprojAssemblyReference.cache
+C:\Users\Cathreport\source\repos\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Debug\SWReenviarSegundoIntento.DTO.csproj.CoreCompileInputs.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Debug\SWReenviarSegundoIntento.DTO.dll.config
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Debug\SWReenviarSegundoIntento.DTO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\bin\Debug\SWReenviarSegundoIntento.DTO.pdb
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Debug\SWReenviarSegundoIntento.DTO.csproj.CoreCompileInputs.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Debug\SWReenviarSegundoIntento.DTO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DTO\obj\Debug\SWReenviarSegundoIntento.DTO.pdb

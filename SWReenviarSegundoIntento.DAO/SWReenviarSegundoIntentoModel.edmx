@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SWReenviarSegundoIntentoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_CENTROID" Type="int" Mode="In" />
+          <Parameter Name="IN_USUARIOID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GUARDAR_STOCK_PACIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_FICHA_STOCK" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERTAR_NUEVA_REPOSICION_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_NID_CATALOGO" Type="int" Mode="In" />
+          <Parameter Name="IN_NID_FICHA_STOCK" Type="int" Mode="In" />
+          <Parameter Name="IN_NID_USUARIO" Type="int" Mode="In" />
+          <Parameter Name="IN_SCOMENTARIO" Type="nvarchar" Mode="In" />
+          <Parameter Name="IN_NID_CENTRO" Type="int" Mode="In" />
+          <Parameter Name="IN_NID_ORDEN_COMPRA" Type="int" Mode="In" />
+          <Parameter Name="IN_NID_CONSIGNACION" Type="int" Mode="In" />
+          <Parameter Name="IN_NID_DESPACHO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERTAR_ORDEN_COMPRA_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_LICITACION" Type="int" Mode="In" />
+          <Parameter Name="IN_CODIGO_ORDEN_COMPRA" Type="nvarchar" Mode="In" />
+          <Parameter Name="IN_ID_PROVEEDOR" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_MONEDA" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_PAIS" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_TIPO_OC" Type="int" Mode="In" />
+          <Parameter Name="IN_DESCRIPCION" Type="nvarchar" Mode="In" />
+          <Parameter Name="IN_NOMBRE" Type="nvarchar" Mode="In" />
+          <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_CORREO_AUTOMATICO" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_PROVEEDOR" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_TERRITORIO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_OBTENER_INFO_CORREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_FICHA_STOCK" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_FICHA" Type="int" Mode="In" />
+          <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_OBTENER_TODOS_LOS_CENTROS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_CATALOGO_ID" Type="int" Mode="In" />
+          <Parameter Name="IN_FICHA_STOCK_ID" Type="int" Mode="In" />
+          <Parameter Name="IN_CENTRO_ID" Type="int" Mode="In" />
+          <Parameter Name="IN_DESPACHO_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IN_ID_CENTRO" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SWReenviarSegundoIntentoModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SWReenviarSegundoIntentoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SWReenviarSegundoIntentoEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SP_OBTENER_TODOS_LOS_CENTROS" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_TODOS_LOS_CENTROS_Result)" />
+          <FunctionImport Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result)">
+          <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" ReturnType="Collection(Int32)">
+            <Parameter Name="IN_CATALOGO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="IN_FICHA_STOCK_ID" Mode="In" Type="Int32" />
+            <Parameter Name="IN_CENTRO_ID" Mode="In" Type="Int32" />
+            <Parameter Name="IN_DESPACHO_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result)">
+          <Parameter Name="IN_ID_FICHA" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GUARDAR_STOCK_PACIENTE" ReturnType="Collection(Int32)">
+          <Parameter Name="IN_ID_FICHA_STOCK" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERTAR_ORDEN_COMPRA_AUTO" ReturnType="Collection(Int32)">
+            <Parameter Name="IN_ID_LICITACION" Mode="In" Type="Int32" />
+            <Parameter Name="IN_CODIGO_ORDEN_COMPRA" Mode="In" Type="String" />
+            <Parameter Name="IN_ID_PROVEEDOR" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_MONEDA" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_PAIS" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_TIPO_OC" Mode="In" Type="Int32" />
+            <Parameter Name="IN_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="IN_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" ReturnType="Collection(Int32)">
+            <Parameter Name="IN_CENTROID" Mode="In" Type="Int32" />
+            <Parameter Name="IN_USUARIOID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERTAR_NUEVA_REPOSICION_AUTO" ReturnType="Collection(Int32)">
+            <Parameter Name="IN_NID_CATALOGO" Mode="In" Type="Int32" />
+            <Parameter Name="IN_NID_FICHA_STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="IN_NID_USUARIO" Mode="In" Type="Int32" />
+            <Parameter Name="IN_SCOMENTARIO" Mode="In" Type="String" />
+            <Parameter Name="IN_NID_CENTRO" Mode="In" Type="Int32" />
+            <Parameter Name="IN_NID_ORDEN_COMPRA" Mode="In" Type="Int32" />
+            <Parameter Name="IN_NID_CONSIGNACION" Mode="In" Type="Int32" />
+            <Parameter Name="IN_NID_DESPACHO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OBTENER_INFO_CORREO" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_INFO_CORREO_Result)">
+          <Parameter Name="IN_ID_FICHA_STOCK" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result)">
+            <Parameter Name="IN_ID_CORREO_AUTOMATICO" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_PROVEEDOR" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+            <Parameter Name="IN_ID_TERRITORIO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID_Result)">
+            <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_OBTENER_TODOS_LOS_CENTROS_Result">
+          <Property Type="Int32" Name="NID_CENTRO" Nullable="false" />
+          <Property Type="String" Name="NCODIGO_ORGANISMO" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result">
+          <Property Type="Int32" Name="CatalogoId" Nullable="false" />
+          <Property Type="Int32" Name="FichaId" Nullable="false" />
+          <Property Type="Int32" Name="FichaStockId" Nullable="false" />
+          <Property Type="Int32" Name="EstadoReposicionId" Nullable="false" />
+          <Property Type="String" Name="EstadoReposicion" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Guia" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CentroId" Nullable="false" />
+          <Property Type="Int32" Name="DespachoId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result">
+          <Property Type="Int32" Name="IDSTOCKINSUMO" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="FECHAINGRESO" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MODELO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MARCA" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MEDIDAS" Nullable="true" MaxLength="1007" />
+          <Property Type="String" Name="OBSERVACIONES" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="IDESTADO" Nullable="false" />
+          <Property Type="String" Name="FechaTermino" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="FechaActual" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CodigoLicitacion" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="LicitacionId" Nullable="false" />
+          <Property Type="Int32" Name="ConsignacionId" Nullable="false" />
+          <Property Type="Int32" Name="ProveedorId" Nullable="false" />
+          <Property Type="Int32" Name="CatalogoId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_OBTENER_INFO_CORREO_Result">
+          <Property Type="String" Name="SRUT_PACIENTE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SNOMBRE_PACIENTE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="idReferencia" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="nombreSubCategoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombreModelo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Medidas" Nullable="true" MaxLength="1007" />
+          <Property Type="DateTime" Name="fechaProcedimiento" Nullable="false" Precision="23" />
+          <Property Type="String" Name="GDConsumida" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="idProveedor" Nullable="false" />
+          <Property Type="String" Name="nombreProveedor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreCentro" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="lote" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codigoLicitacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nombreLicitacion" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result">
+          <Property Type="String" Name="nombreCorreo" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="idRol" Nullable="false" />
+          <Property Type="String" Name="alias" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID_Result">
+          <Property Type="Int32" Name="NID_FICHA_STOCK" Nullable="false" />
+          <Property Type="Int32" Name="NID_STOCK_INSUMO" Nullable="false" />
+          <Property Type="DateTime" Name="DFECHA_Y_HORA" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SNOMBRE_PACIENTE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SRUT_PACIENTE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SNOMBRE_MEDICO" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NID_PACIENTE" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="SNOMBRE" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="NID_CENTRO" Nullable="false" />
+          <Property Type="Int32" Name="NID_CATALOGO" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SWReenviarSegundoIntentoModelStoreContainer" CdmEntityContainer="SWReenviarSegundoIntentoEntities" >
+          <FunctionImportMapping FunctionImportName="SP_OBTENER_TODOS_LOS_CENTROS" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_TODOS_LOS_CENTROS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_TODOS_LOS_CENTROS_Result">
+                <ScalarProperty Name="NID_CENTRO" ColumnName="NID_CENTRO" />
+                <ScalarProperty Name="NCODIGO_ORGANISMO" ColumnName="NCODIGO_ORGANISMO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result">
+                <ScalarProperty Name="CatalogoId" ColumnName="CatalogoId" />
+                <ScalarProperty Name="FichaId" ColumnName="FichaId" />
+                <ScalarProperty Name="FichaStockId" ColumnName="FichaStockId" />
+                <ScalarProperty Name="EstadoReposicionId" ColumnName="EstadoReposicionId" />
+                <ScalarProperty Name="EstadoReposicion" ColumnName="EstadoReposicion" />
+                <ScalarProperty Name="Guia" ColumnName="Guia" />
+                <ScalarProperty Name="CentroId" ColumnName="CentroId" />
+                <ScalarProperty Name="DespachoId" ColumnName="DespachoId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" />
+          <FunctionImportMapping FunctionImportName="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result">
+                <ScalarProperty Name="IDSTOCKINSUMO" ColumnName="IDSTOCKINSUMO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FECHAINGRESO" ColumnName="FECHAINGRESO" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="MEDIDAS" ColumnName="MEDIDAS" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
+                <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+                <ScalarProperty Name="CodigoLicitacion" ColumnName="CodigoLicitacion" />
+                <ScalarProperty Name="LicitacionId" ColumnName="LicitacionId" />
+                <ScalarProperty Name="ConsignacionId" ColumnName="ConsignacionId" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="CatalogoId" ColumnName="CatalogoId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GUARDAR_STOCK_PACIENTE" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_GUARDAR_STOCK_PACIENTE" />
+          <FunctionImportMapping FunctionImportName="SP_INSERTAR_ORDEN_COMPRA_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_INSERTAR_ORDEN_COMPRA_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_INSERTAR_NUEVA_REPOSICION_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_INSERTAR_NUEVA_REPOSICION_AUTO" />
+          <FunctionImportMapping FunctionImportName="SP_OBTENER_INFO_CORREO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_INFO_CORREO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_INFO_CORREO_Result">
+                <ScalarProperty Name="SRUT_PACIENTE" ColumnName="SRUT_PACIENTE" />
+                <ScalarProperty Name="SNOMBRE_PACIENTE" ColumnName="SNOMBRE_PACIENTE" />
+                <ScalarProperty Name="idReferencia" ColumnName="idReferencia" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="nombreSubCategoria" ColumnName="nombreSubCategoria" />
+                <ScalarProperty Name="nombreModelo" ColumnName="nombreModelo" />
+                <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+                <ScalarProperty Name="fechaProcedimiento" ColumnName="fechaProcedimiento" />
+                <ScalarProperty Name="GDConsumida" ColumnName="GDConsumida" />
+                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
+                <ScalarProperty Name="nombreCentro" ColumnName="nombreCentro" />
+                <ScalarProperty Name="lote" ColumnName="lote" />
+                <ScalarProperty Name="codigoLicitacion" ColumnName="codigoLicitacion" />
+                <ScalarProperty Name="nombreLicitacion" ColumnName="nombreLicitacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result">
+                <ScalarProperty Name="nombreCorreo" ColumnName="nombreCorreo" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="alias" ColumnName="alias" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID_Result">
+                <ScalarProperty Name="NID_FICHA_STOCK" ColumnName="NID_FICHA_STOCK" />
+                <ScalarProperty Name="NID_STOCK_INSUMO" ColumnName="NID_STOCK_INSUMO" />
+                <ScalarProperty Name="DFECHA_Y_HORA" ColumnName="DFECHA_Y_HORA" />
+                <ScalarProperty Name="SNOMBRE_PACIENTE" ColumnName="SNOMBRE_PACIENTE" />
+                <ScalarProperty Name="SRUT_PACIENTE" ColumnName="SRUT_PACIENTE" />
+                <ScalarProperty Name="SNOMBRE_MEDICO" ColumnName="SNOMBRE_MEDICO" />
+                <ScalarProperty Name="NID_PACIENTE" ColumnName="NID_PACIENTE" />
+                <ScalarProperty Name="SNOMBRE" ColumnName="SNOMBRE" />
+                <ScalarProperty Name="NID_CENTRO" ColumnName="NID_CENTRO" />
+                <ScalarProperty Name="NID_CATALOGO" ColumnName="NID_CATALOGO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

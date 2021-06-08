@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SWReenviarSegundoIntentoModelStoreContainer" CdmEntityContainer="SWReenviarSegundoIntentoEntities">
+    <FunctionImportMapping FunctionImportName="SP_OBTENER_TODOS_LOS_CENTROS" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_TODOS_LOS_CENTROS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_TODOS_LOS_CENTROS_Result">
+          <ScalarProperty Name="NID_CENTRO" ColumnName="NID_CENTRO" />
+          <ScalarProperty Name="NCODIGO_ORGANISMO" ColumnName="NCODIGO_ORGANISMO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result">
+          <ScalarProperty Name="CatalogoId" ColumnName="CatalogoId" />
+          <ScalarProperty Name="FichaId" ColumnName="FichaId" />
+          <ScalarProperty Name="FichaStockId" ColumnName="FichaStockId" />
+          <ScalarProperty Name="EstadoReposicionId" ColumnName="EstadoReposicionId" />
+          <ScalarProperty Name="EstadoReposicion" ColumnName="EstadoReposicion" />
+          <ScalarProperty Name="Guia" ColumnName="Guia" />
+          <ScalarProperty Name="CentroId" ColumnName="CentroId" />
+          <ScalarProperty Name="DespachoId" ColumnName="DespachoId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" />
+    <FunctionImportMapping FunctionImportName="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result">
+          <ScalarProperty Name="IDSTOCKINSUMO" ColumnName="IDSTOCKINSUMO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FECHAINGRESO" ColumnName="FECHAINGRESO" />
+          <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+          <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+          <ScalarProperty Name="MEDIDAS" ColumnName="MEDIDAS" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+          <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
+          <ScalarProperty Name="FechaActual" ColumnName="FechaActual" />
+          <ScalarProperty Name="CodigoLicitacion" ColumnName="CodigoLicitacion" />
+          <ScalarProperty Name="LicitacionId" ColumnName="LicitacionId" />
+          <ScalarProperty Name="ConsignacionId" ColumnName="ConsignacionId" />
+          <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+          <ScalarProperty Name="CatalogoId" ColumnName="CatalogoId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GUARDAR_STOCK_PACIENTE" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_GUARDAR_STOCK_PACIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_INSERTAR_ORDEN_COMPRA_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_INSERTAR_ORDEN_COMPRA_AUTO" />
+    <FunctionImportMapping FunctionImportName="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" />
+    <FunctionImportMapping FunctionImportName="SP_INSERTAR_NUEVA_REPOSICION_AUTO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_INSERTAR_NUEVA_REPOSICION_AUTO" />
+    <FunctionImportMapping FunctionImportName="SP_OBTENER_INFO_CORREO" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_INFO_CORREO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_INFO_CORREO_Result">
+          <ScalarProperty Name="SRUT_PACIENTE" ColumnName="SRUT_PACIENTE" />
+          <ScalarProperty Name="SNOMBRE_PACIENTE" ColumnName="SNOMBRE_PACIENTE" />
+          <ScalarProperty Name="idReferencia" ColumnName="idReferencia" />
+          <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+          <ScalarProperty Name="nombreSubCategoria" ColumnName="nombreSubCategoria" />
+          <ScalarProperty Name="nombreModelo" ColumnName="nombreModelo" />
+          <ScalarProperty Name="Medidas" ColumnName="Medidas" />
+          <ScalarProperty Name="fechaProcedimiento" ColumnName="fechaProcedimiento" />
+          <ScalarProperty Name="GDConsumida" ColumnName="GDConsumida" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
+          <ScalarProperty Name="nombreCentro" ColumnName="nombreCentro" />
+          <ScalarProperty Name="lote" ColumnName="lote" />
+          <ScalarProperty Name="codigoLicitacion" ColumnName="codigoLicitacion" />
+          <ScalarProperty Name="nombreLicitacion" ColumnName="nombreLicitacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" FunctionName="SWReenviarSegundoIntentoModel.Store.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SWReenviarSegundoIntentoModel.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result">
+          <ScalarProperty Name="nombreCorreo" ColumnName="nombreCorreo" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

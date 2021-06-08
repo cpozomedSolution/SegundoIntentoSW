@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SWReenviarSegundoIntentoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SWReenviarSegundoIntentoEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_OBTENER_TODOS_LOS_CENTROS" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_TODOS_LOS_CENTROS_Result)" />
+    <FunctionImport Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result)">
+      <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SW_ACTUALIZAR_SEGUNDO_INTENTO" ReturnType="Collection(Int32)">
+      <Parameter Name="IN_CATALOGO_ID" Mode="In" Type="Int32" />
+      <Parameter Name="IN_FICHA_STOCK_ID" Mode="In" Type="Int32" />
+      <Parameter Name="IN_CENTRO_ID" Mode="In" Type="Int32" />
+      <Parameter Name="IN_DESPACHO_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result)">
+      <Parameter Name="IN_ID_FICHA" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GUARDAR_STOCK_PACIENTE" ReturnType="Collection(Int32)">
+      <Parameter Name="IN_ID_FICHA_STOCK" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_INSERTAR_ORDEN_COMPRA_AUTO" ReturnType="Collection(Int32)">
+      <Parameter Name="IN_ID_LICITACION" Mode="In" Type="Int32" />
+      <Parameter Name="IN_CODIGO_ORDEN_COMPRA" Mode="In" Type="String" />
+      <Parameter Name="IN_ID_PROVEEDOR" Mode="In" Type="Int32" />
+      <Parameter Name="IN_ID_MONEDA" Mode="In" Type="Int32" />
+      <Parameter Name="IN_ID_PAIS" Mode="In" Type="Int32" />
+      <Parameter Name="IN_ID_TIPO_OC" Mode="In" Type="Int32" />
+      <Parameter Name="IN_DESCRIPCION" Mode="In" Type="String" />
+      <Parameter Name="IN_NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="IN_ID_CENTRO" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GENERACION_DE_DESPACHOS_REPOSICION_AUTO" ReturnType="Collection(Int32)">
+      <Parameter Name="IN_CENTROID" Mode="In" Type="Int32" />
+      <Parameter Name="IN_USUARIOID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_INSERTAR_NUEVA_REPOSICION_AUTO" ReturnType="Collection(Int32)">
+      <Parameter Name="IN_NID_CATALOGO" Mode="In" Type="Int32" />
+      <Parameter Name="IN_NID_FICHA_STOCK" Mode="In" Type="Int32" />
+      <Parameter Name="IN_NID_USUARIO" Mode="In" Type="Int32" />
+      <Parameter Name="IN_SCOMENTARIO" Mode="In" Type="String" />
+      <Parameter Name="IN_NID_CENTRO" Mode="In" Type="Int32" />
+      <Parameter Name="IN_NID_ORDEN_COMPRA" Mode="In" Type="Int32" />
+      <Parameter Name="IN_NID_CONSIGNACION" Mode="In" Type="Int32" />
+      <Parameter Name="IN_NID_DESPACHO" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_OBTENER_INFO_CORREO" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_INFO_CORREO_Result)">
+      <Parameter Name="IN_ID_FICHA_STOCK" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR" ReturnType="Collection(SWReenviarSegundoIntentoModel.SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result)">
+      <Parameter Name="IN_ID_CORREO_AUTOMATICO" Mode="In" Type="Int32" />
+      <Parameter Name="IN_ID_PROVEEDOR" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_OBTENER_TODOS_LOS_CENTROS_Result">
+    <Property Type="Int32" Name="NID_CENTRO" Nullable="false" />
+    <Property Type="String" Name="NCODIGO_ORGANISMO" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result">
+    <Property Type="Int32" Name="CatalogoId" Nullable="false" />
+    <Property Type="Int32" Name="FichaId" Nullable="false" />
+    <Property Type="Int32" Name="FichaStockId" Nullable="false" />
+    <Property Type="Int32" Name="EstadoReposicionId" Nullable="false" />
+    <Property Type="String" Name="EstadoReposicion" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Guia" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CentroId" Nullable="false" />
+    <Property Type="Int32" Name="DespachoId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result">
+    <Property Type="Int32" Name="IDSTOCKINSUMO" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="FECHAINGRESO" Nullable="false" Precision="23" />
+    <Property Type="String" Name="MODELO" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MARCA" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MEDIDAS" Nullable="true" MaxLength="1007" />
+    <Property Type="String" Name="OBSERVACIONES" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="IDESTADO" Nullable="false" />
+    <Property Type="String" Name="FechaTermino" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="FechaActual" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CodigoLicitacion" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="LicitacionId" Nullable="false" />
+    <Property Type="Int32" Name="ConsignacionId" Nullable="false" />
+    <Property Type="Int32" Name="ProveedorId" Nullable="false" />
+    <Property Type="Int32" Name="CatalogoId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_OBTENER_INFO_CORREO_Result">
+    <Property Type="String" Name="SRUT_PACIENTE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SNOMBRE_PACIENTE" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="idReferencia" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="nombreSubCategoria" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="nombreModelo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Medidas" Nullable="true" MaxLength="1007" />
+    <Property Type="DateTime" Name="fechaProcedimiento" Nullable="false" Precision="23" />
+    <Property Type="String" Name="GDConsumida" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="idProveedor" Nullable="false" />
+    <Property Type="String" Name="nombreProveedor" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombreCentro" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="lote" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="codigoLicitacion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nombreLicitacion" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result">
+    <Property Type="String" Name="nombreCorreo" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="idRol" Nullable="false" />
+    <Property Type="String" Name="alias" Nullable="true" MaxLength="500" />
+  </ComplexType>
+</Schema>

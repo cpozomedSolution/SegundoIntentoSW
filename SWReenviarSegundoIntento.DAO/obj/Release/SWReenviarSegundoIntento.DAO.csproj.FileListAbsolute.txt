@@ -1,0 +1,15 @@
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DAO.dll.config
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DAO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DAO.pdb
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\EntityFramework.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\EntityFramework.SqlServer.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DTO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DTO.pdb
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\SWReenviarSegundoIntento.DTO.dll.config
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\EntityFramework.xml
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\bin\Release\EntityFramework.SqlServer.xml
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\obj\Release\SWReenviarSegundoIntento.DAO.csprojAssemblyReference.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\obj\Release\SWReenviarSegundoIntento.DAO.csproj.CoreCompileInputs.cache
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\obj\Release\SWReenviarSegundoIntento.DAO.csproj.CopyComplete
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\obj\Release\SWReenviarSegundoIntento.DAO.dll
+C:\ReenviarSegundoIntento\SWReenviarSegundoIntento.DAO\obj\Release\SWReenviarSegundoIntento.DAO.pdb
