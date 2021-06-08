@@ -67,6 +67,9 @@
     <Compile Include="SP_OBTENER_TODOS_LOS_CENTROS_Result.cs">
       <DependentUpon>SWReenviarSegundoIntentoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID_Result.cs">
+      <DependentUpon>SWReenviarSegundoIntentoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_SW_OBTENER_SEGUNDO_INTENTO_POR_CENTROID_Result.cs">
       <DependentUpon>SWReenviarSegundoIntentoModel.tt</DependentUpon>
     </Compile>
