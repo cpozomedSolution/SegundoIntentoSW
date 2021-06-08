@@ -79,7 +79,7 @@ namespace SWReenviarSegundoIntento.BCP
             string idFichaStock = string.Empty;
             string idConsignacion = string.Empty;
             string comentario = "Reposicion Automatica";
-            List<SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result> listaInsumosPacientes = reenviarSegundoIntentoDAO.obtenerInsumosPacientes(idFicha);
+            List<SP_OBTENER_INSUMOS_PACIENTE_POR_FICHA_Result> listaInsumosPacientes = reenviarSegundoIntentoDAO.obtenerInsumosPacientes(idFicha, centroId);
 
             foreach (var item in listaInsumosPacientes)
             {
