@@ -50,6 +50,7 @@
     <Compile Include="CentrosDTO.cs" />
     <Compile Include="DireccionEmailDTO.cs" />
     <Compile Include="InfoCorreoDTO.cs" />
+    <Compile Include="NoConfirmadosDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -160,7 +160,7 @@
           <Property Type="String" Name="nombreSubCategoria" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="nombreModelo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Medidas" Nullable="true" MaxLength="1007" />
-          <Property Type="DateTime" Name="fechaProcedimiento" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaProcedimiento" Nullable="true" />
           <Property Type="String" Name="GDConsumida" Nullable="true" MaxLength="500" />
           <Property Type="Int32" Name="idProveedor" Nullable="false" />
           <Property Type="String" Name="nombreProveedor" Nullable="false" MaxLength="50" />
@@ -168,6 +168,8 @@
           <Property Type="String" Name="lote" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="codigoLicitacion" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="nombreLicitacion" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="idCentro" Nullable="false" />
+          <Property Type="Int32" Name="idTerritorio" Nullable="false" />
         </ComplexType>
         <ComplexType Name="SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result">
           <Property Type="String" Name="nombreCorreo" Nullable="false" MaxLength="500" />
@@ -259,6 +261,8 @@
                 <ScalarProperty Name="lote" ColumnName="lote" />
                 <ScalarProperty Name="codigoLicitacion" ColumnName="codigoLicitacion" />
                 <ScalarProperty Name="nombreLicitacion" ColumnName="nombreLicitacion" />
+                <ScalarProperty Name="idCentro" ColumnName="idCentro" />
+                <ScalarProperty Name="idTerritorio" ColumnName="idTerritorio" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

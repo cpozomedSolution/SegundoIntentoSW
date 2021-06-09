@@ -19,7 +19,9 @@ namespace SWReenviarSegundoIntento.DTO
         private string fechaProcedimiento;
         private string guiaConsumido;
         private string nombreProveedor;
+        private int idCentro;
         private string nombreCentro;
+        private int idTerritorio;
         private string lote;
         private string nombreLicitacion;
         private string codigoLicitacion;
@@ -64,7 +66,9 @@ namespace SWReenviarSegundoIntento.DTO
             this.fechaProcedimiento = obj.fechaProcedimiento;
             this.guiaConsumido = obj.guiaConsumido;
             this.nombreProveedor = obj.NombreProveedor;
+            this.IdCentro = obj.idCentro;
             this.NombreCentro = obj.NombreCentro;
+            this.idTerritorio = obj.idTerritorio;
             this.lote = obj.lote;
             this.nombreLicitacion = obj.nombreLicitacion;
             this.codigoLicitacion = obj.codigoLicitacion;
@@ -129,5 +133,7 @@ namespace SWReenviarSegundoIntento.DTO
         public List<DireccionEmailDTO> Correos { get => correos; set => correos = value; }
         public string Proveedor { get => proveedor; set => proveedor = value; }
         public string Centro { get => centro; set => centro = value; }
+        public int IdCentro { get => idCentro; set => idCentro = value; }
+        public int IdTerritorio { get => idTerritorio; set => idTerritorio = value; }
     }
 }

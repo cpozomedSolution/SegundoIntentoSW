@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReenviarSegundoIntento", "ReenviarSegundoIntento\ReenviarSegundoIntento.csproj", "{B959DBA9-9F61-4BDB-BFD1-1C2EF9322225}"
 EndProject

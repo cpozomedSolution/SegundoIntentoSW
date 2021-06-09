@@ -20,7 +20,7 @@ namespace SWReenviarSegundoIntento.DAO
         public string nombreSubCategoria { get; set; }
         public string nombreModelo { get; set; }
         public string Medidas { get; set; }
-        public System.DateTime fechaProcedimiento { get; set; }
+        public Nullable<System.DateTime> fechaProcedimiento { get; set; }
         public string GDConsumida { get; set; }
         public int idProveedor { get; set; }
         public string nombreProveedor { get; set; }
@@ -28,5 +28,7 @@ namespace SWReenviarSegundoIntento.DAO
         public string lote { get; set; }
         public string codigoLicitacion { get; set; }
         public string nombreLicitacion { get; set; }
+        public int idCentro { get; set; }
+        public int idTerritorio { get; set; }
     }
 }

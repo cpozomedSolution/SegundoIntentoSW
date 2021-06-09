@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using SWReenviarSegundoIntento.DAO;
 using SWReenviarSegundoIntento.DTO;
+
 
 namespace SWReenviarSegundoIntento.BCP
 {
@@ -38,6 +40,42 @@ namespace SWReenviarSegundoIntento.BCP
                 throw ex;
             }
         }
+
+        public List<NoConfirmadosDTO> ObtenerTodosLosNoConfirmados(int idCentro)
+        {
+            try
+            {
+                List<NoConfirmadosDTO> listaNoConfirmadosDTO = new List<NoConfirmadosDTO>();
+                List<SP_SW_OBTENER_INSUMOS_NO_CONFIRMADOS_POR_CENTROID_Result> listaNoConfirmadosSP = reenviarSegundoIntentoDAO.ObtenerInsumosNoConfirmados(idCentro);
+
+                foreach (var item in listaNoConfirmadosSP)
+                {
+                    NoConfirmadosDTO listaNoConfirmados = new NoConfirmadosDTO();
+                    listaNoConfirmados.IdFicha = item.NID_FICHA_STOCK;
+                    listaNoConfirmados.IdStockInsumo = item.NID_STOCK_INSUMO;
+                    listaNoConfirmados.Fecha = item.DFECHA_Y_HORA.ToString("dd-MM-yyyy");
+                    listaNoConfirmados.NombrePaciente = item.SNOMBRE_PACIENTE;
+                    listaNoConfirmados.NombreMedico = item.SNOMBRE_MEDICO;
+                    listaNoConfirmados.CodigoPaciente = item.NID_PACIENTE;
+                    listaNoConfirmados.RutPaciente = item.SRUT_PACIENTE;
+                    listaNoConfirmados.NombreModelo = item.SNOMBRE;
+                    listaNoConfirmados.IdCentro = item.NID_CENTRO;
+                    listaNoConfirmados.IdCatalogo = item.NID_CATALOGO;
+
+                    listaNoConfirmadosDTO.Add(listaNoConfirmados);
+
+
+                }
+
+                return listaNoConfirmadosDTO;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public int? ReenviaSegundoIntento(int centroId)
         {
@@ -266,14 +304,17 @@ namespace SWReenviarSegundoIntento.BCP
                         InfoCorreo.NombreModelo = item.nombreModelo;
                         InfoCorreo.NombreSubCategoria = item.nombreSubCategoria;
                         InfoCorreo.GuiaConsumido = item.GDConsumida;
-                        InfoCorreo.FechaProcedimiento = item.fechaProcedimiento.ToString("dd-MM-yyyy");
+                        InfoCorreo.FechaProcedimiento = Convert.ToDateTime(item.fechaProcedimiento).ToString("dd-MM-yyyy");
                         InfoCorreo.NombreProveedor = item.nombreProveedor;
+                        InfoCorreo.IdCentro = item.idCentro;
                         InfoCorreo.NombreCentro = item.nombreCentro;
+                        InfoCorreo.IdTerritorio = item.idTerritorio;
                         InfoCorreo.Lote = item.lote;
                         InfoCorreo.NombreLicitacion = item.nombreLicitacion;
                         InfoCorreo.CodigoLicitacion = item.codigoLicitacion;
                         InfoCorreo.IdProveedor = item.idProveedor;
-                        InfoCorreo.Correos = ObtenerDireccionesCorreo(IdCorreoReposicion, InfoCorreo.IdProveedor);
+
+                        InfoCorreo.Correos = ObtenerDireccionesCorreo(IdCorreoReposicion, InfoCorreo.IdProveedor, InfoCorreo.IdCentro, InfoCorreo.IdTerritorio);
                     }
                 }
 
@@ -285,10 +326,10 @@ namespace SWReenviarSegundoIntento.BCP
             }
         }
 
-        public List<DireccionEmailDTO> ObtenerDireccionesCorreo(int IdCorreoReposicion, int IdProveedor)
+        public List<DireccionEmailDTO> ObtenerDireccionesCorreo(int IdCorreoReposicion, int IdProveedor, int idCentro, int idTerritorio)
         {
 
-            List<SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result> SPDireccionesCorreos = reenviarSegundoIntentoDAO.ObtenerDireccionesCorreo(IdCorreoReposicion, IdProveedor);
+            List<SP_OBTENER_DIRECCIONES_EMAIL_POR_PROVEEDOR_Result> SPDireccionesCorreos = reenviarSegundoIntentoDAO.ObtenerDireccionesCorreo(IdCorreoReposicion, IdProveedor, idCentro, idTerritorio);
             List<DireccionEmailDTO> listaCorreo = new List<DireccionEmailDTO>();
 
             foreach (var spDireccionCorreo in SPDireccionesCorreos)
@@ -307,41 +348,87 @@ namespace SWReenviarSegundoIntento.BCP
 
         public string ObtenerCuerpoCorreoReposicion(InfoCorreoDTO correo)
         {
-            string mensaje = "<html><head><title>Alerta de Reposición</title></head><body><table><tr><td><table><tr><td>" +
+            string idPaciente = EncriptarDatos(correo.RutPaciente.ToString());
+            string mensaje = "";
+            if (correo.IdCentro != 6)
+            {
+                mensaje = "<html><head><title>Alerta de Reposición</title></head><body><table><tr><td><table><tr><td>" +
 
-            "Estimado equipo <b>" + correo.NombreProveedor + "</b>," +
-            "<br> Se comunica el consumo de el/los siguiente(s) insumo(s) en el centro <b>" + correo.NombreCentro + "</b> correspondiente " +
-            "a la licitación N° <b>" + correo.CodigoLicitacion + "</b> \"<b>" + correo.NombreLicitacion + "</b>\":" +
+                "Estimado equipo <b>" + correo.NombreProveedor + "</b>," +
+                "<br> Se comunica el consumo de el/los siguiente(s) insumo(s) en el centro <b>" + correo.NombreCentro + "</b> correspondiente " +
+                "a la licitación N° <b>" + correo.CodigoLicitacion + "</b> \"<b>" + correo.NombreLicitacion + "</b>\":" +
 
-            "<br><br><table border=\"1\">" +
-            "<tr>" +
-            "<th> Descripción </th>" +
-            "<th> Código </th>" +
-            "<th> Lote </th>" +
-            "<th> GD Consumida </th>" +
-            "<th> Paciente </th>" +
-            "<th> Fecha Procedimiento </th>" +
-            "</tr>" +
-             "<tr>" +
-            "<td> " + correo.NombreCategoria + " " + correo.NombreSubCategoria + " " + correo.NombreModelo + " " + correo.NombreMedidas + "</th>" +
-            "<td> " + correo.IdReferencia + "</th>" +
-            "<td> " + correo.Lote + "</th>" +
-            "<td> " + correo.GuiaConsumido + " </th>" +
-            "<td> " + correo.NombrePaciente + " </th>" +
-            "<td> " + correo.FechaProcedimiento + " </th>" +
-            "</tr>" +
-            "</table>" +
-            "<br>Equipo CathReport.<br>" +
-            "<font style=\"font - family:arial,sans - serif; font - size:9px; color:#484848;text-align:center;padding:5px 10px\">Este mail fue generado automáticamente por sistema CathReport, favor no responder." +
-            " <br>© CathReport 2019 - Todos los derechos reservados.</font>" +
-            "</td></tr></table></td></tr></table></body></html>";
+                "<br><br><table border=\"1\">" +
+                "<tr>" +
+                "<th> Descripción </th>" +
+                "<th> Código </th>" +
+                "<th> Lote </th>" +
+                "<th> GD Consumida </th>" +
+                "<th> Paciente </th>" +
+                "<th> Fecha Procedimiento </th>" +
+                "</tr>" +
+                 "<tr>" +
+                "<td> " + correo.NombreCategoria + " " + correo.NombreSubCategoria + " " + correo.NombreModelo + " " + correo.NombreMedidas + "</th>" +
+                "<td> " + correo.IdReferencia + "</th>" +
+                "<td> " + correo.Lote + "</th>" +
+                "<td> " + correo.GuiaConsumido + " </th>" +
+                "<td> " + correo.NombrePaciente + " </th>" +
+                "<td> " + correo.FechaProcedimiento + " </th>" +
+                "</tr>" +
+                "</table>" +
+                "<br>Equipo CathReport.<br>" +
+                "<font style=\"font - family:arial,sans - serif; font - size:9px; color:#484848;text-align:center;padding:5px 10px\">Este mail fue generado automáticamente por sistema CathReport, favor no responder." +
+                " <br>© CathReport 2019 - Todos los derechos reservados.</font>" +
+                "</td></tr></table></td></tr></table></body></html>";
+            }
+            else
+            {
+                mensaje = "<html><head><title>Alerta de Reposición</title></head><body><table><tr><td><table><tr><td>" +
+
+                "Estimado equipo <b>" + correo.NombreProveedor + "</b>," +
+                "<br> Se comunica el consumo de el/los siguiente(s) insumo(s) en el centro <b>" + correo.NombreCentro + "</b> correspondiente " +
+                "a la licitación N° <b>" + correo.CodigoLicitacion + "</b> \"<b>" + correo.NombreLicitacion + "</b>\":" +
+
+                "<br><br><table border=\"1\">" +
+                "<tr>" +
+                "<th> Descripción </th>" +
+                "<th> Código </th>" +
+                "<th> Lote </th>" +
+                "<th> GD Consumida </th>" +
+                "<th> IdPaciente </th>" +
+                "<th> Fecha Procedimiento </th>" +
+                "</tr>" +
+                 "<tr>" +
+                "<td> " + correo.NombreCategoria + " " + correo.NombreSubCategoria + " " + correo.NombreModelo + " " + correo.NombreMedidas + "</th>" +
+                "<td> " + correo.IdReferencia + "</th>" +
+                "<td> " + correo.Lote + "</th>" +
+                "<td> " + correo.GuiaConsumido + " </th>" +
+                "<td> " + idPaciente + " </th>" +
+                "<td> " + correo.FechaProcedimiento + " </th>" +
+                "</tr>" +
+                "</table>" +
+                "<br>Equipo CathReport.<br>" +
+                "<font style=\"font - family:arial,sans - serif; font - size:9px; color:#484848;text-align:center;padding:5px 10px\">Este mail fue generado automáticamente por sistema CathReport, favor no responder." +
+                " <br>© CathReport 2019 - Todos los derechos reservados.</font>" +
+                "</td></tr></table></td></tr></table></body></html>";
+            }
+            
 
             return mensaje;
         }
         #endregion
 
 
+        #region varios
 
-
+        public static string EncriptarDatos(string dato)
+        {
+            SHA1CryptoServiceProvider SHA1 = new SHA1CryptoServiceProvider();
+            byte[] vectoBytes = System.Text.Encoding.UTF8.GetBytes(dato);
+            byte[] inArray = SHA1.ComputeHash(vectoBytes);
+            SHA1.Clear();
+            return Convert.ToBase64String(inArray);
+        }
+        #endregion
     }
 }
